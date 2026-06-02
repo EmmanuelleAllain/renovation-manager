@@ -52,10 +52,10 @@ stan: ## Run PHPStan
 	@$(PHPSTAN) analyse -c configuration/phpstan.neon --memory-limit 1G
 
 check-php: ## Check files with php-cs-fixer
-	@$(PHP_CS_FIXER) check --allow-risky=yes --config=.php-cs-fixer.dist.php
+	@$(PHP_CS_FIXER) check --allow-risky=yes --config=.php-cs-fixer.php
 
 fix-php: ## Fix files with php-cs-fixer
-	@PHP_CS_FIXER_IGNORE_ENV=1 $(PHP_CS_FIXER) fix --allow-risky=yes --config=.php-cs-fixer.dist.php
+	@PHP_CS_FIXER_IGNORE_ENV=1 $(PHP_CS_FIXER) fix --allow-risky=yes --config=.php-cs-fixer.php
 
 lint-yaml: ## Check yaml files syntax
 	@$(SYMFONY) lint:yaml ./config
