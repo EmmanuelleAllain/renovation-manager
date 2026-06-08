@@ -51,14 +51,17 @@ analysis: fix-php fix-js lint-yaml stan ## Run all coding standards checks and s
 stan: ## Run PHPStan
 	@$(PHPSTAN) analyse -c configuration/phpstan.neon --memory-limit 1G
 
-check-php: ## Check files with php-cs-fixer
+check-phpcs: ## Check files with php-cs-fixer
 	@$(PHP_CS_FIXER) check --allow-risky=yes --config=.php-cs-fixer.php
 
-fix-php: ## Fix files with php-cs-fixer
+fix-phpcs: ## Fix files with php-cs-fixer
 	@PHP_CS_FIXER_IGNORE_ENV=1 $(PHP_CS_FIXER) fix --allow-risky=yes --config=.php-cs-fixer.php
 
 lint-yaml: ## Check yaml files syntax
 	@$(SYMFONY) lint:yaml ./config
+
+lint-twig: ## Check twig files syntax
+	@$(SYMFONY) lint:twig templates/
 
 
 ## —— Yarn 🐱 / JavaScript —————————————————————————————————————————————————————
